@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello</title>
+</head>
+<body>
+  <table>
+      <thead>
+            <tr>
+                <th>키워드</th>
+                <th>가중치</th>
+                <th>클러스터</th>
+            </tr>
+      </thead>
+      <tbody>
+            <tr th:each="Posts : ${list}">
+                <td th:text="${Posts.keyword}">1</td>
+                <td th:text="${Posts.weight}">22</td>
+                <td th:text="${Posts.cluster}">333</td>
+            </tr>
+      </tbody>
+    
+  </table>
+</body>
+</html>
