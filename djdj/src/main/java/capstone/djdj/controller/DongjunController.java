@@ -17,9 +17,17 @@ public class DongjunController {
 
     @GetMapping("/data")
     public List<dongjun> showdata(){
+<<<<<<< HEAD
+
+        System.out.println("controller start");
+        return dongjunService.getAllData();
+    }
+}
+=======
         System.out.println("controller start");
         return dongjunService.getAllData();
     }
 
 
 }
+>>>>>>> fb29c8a14936da1bebbdb1c88e0979cf3dc1279a
