@@ -33,8 +33,8 @@ public class BaseController {
     public String viewAll(Model model){
         model.addAttribute("list",postsRepository.findAll());
 
-        return "demo_show";
-        //return "chart01"; //예시 워드 클라우드뷰
+        //return "demo_show";
+        return "chart01"; //예시 워드 클라우드뷰
     }
 }
  
