@@ -9,24 +9,16 @@
 	<script src="https://cdn.anychart.com/releases/v8/js/anychart-tag-cloud.min.js"></script>
     <script th:inline="javascript">
         anychart.onDocumentReady(function () { 
-            var data = [
-                        {"x":"method","value":1470.4924},
-                        {"x":"device","value":767.454},
-                        {"x":"compositions","value":476.2132},
-                        {"x":"treatment","value":414.5719},
-                        {"x":"thereof","value":296.7578},
-                        {"x":"manufacturing","value":290.4384},
-                        {"x":"cancer","value":277.8664},
-                        {"x":"pharmaceutical","value":248.0913},
-                        {"x":"antibodies","value":240.4238},
-                        {"x":"uses","value":234.4366},
-                        {"x":"cell","value":205.9535},
-                        {"x":"producing","value":204.2256},
-                        {"x":"acid","value":183.6524},
-                        {"x":"wireless","value":179.1979},
-                        {"x":"systems","value":176.2546}
-                        ];
-            var chart = anychart.tagCloud(data); 
+            var data1 = {};
+            var dataArray = []; 
+            [# th:each="Posts : ${list}"]           //반복문으로 리스트 값 받아오기
+                data1.x = [[${Posts.keyword}]];     //변수 받기
+                data1.value = [[${Posts.weight}]];
+                dataArray.push({...data1});         //json형식으로 데이터 추가하기 위해서
+                //console.log(JSON.stringify(dataArray));
+            [/]
+
+            var chart = anychart.tagCloud(dataArray); 
             //chart.angles([0, 30, 90]); 
             chart.container("container"); 
             //chart.getCredits().setEnabled(false); 
