@@ -34,7 +34,7 @@ public class BaseController {
         model.addAttribute("list",postsRepository.findAll());
 
         return "demo_show";
-        //return "chart01";
+        //return "chart01"; //예시 워드 클라우드뷰
     }
 }
  
