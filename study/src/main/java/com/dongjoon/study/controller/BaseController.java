@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+//@RestController  //sunhee - json으로 데이터 보낼때 사용
 @RequiredArgsConstructor
-@Controller
+@Controller //sunhee - 뷰로 보여줌
 public class BaseController {
 
     private final PostsRepository postsRepository;
@@ -34,5 +34,7 @@ public class BaseController {
         model.addAttribute("list",postsRepository.findAll());
 
         return "demo_show";
+        //return "chart01"; //예시 워드 클라우드뷰
     }
 }
+ 
