@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello</title>
+</head>
+<body>
+<th:block layout:fragment = "search" >
+<table>
+    <thead>
+    <tr>
+        <th>키워드</th>
+        <th>가중치</th>
+        <th>클러스터</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="Posts : ${kw}">
+        <td th:text="${Posts.keyword}">1</td>
+        <td th:text="${Posts.weight}">22</td>
+        <td th:text="${Posts.cluster}">333</td>
+    </tr>
+    </tbody>
+
+</table>
+</th:block>
+</body>
+
+<th:block layout:fragment="script">
+    <script th:inline="javascript">
+
+		function searchBoard(form) {
+			/*[- 드롭다운이 아닌 메인 검색 키워드로 검색했을 때 -]*/
+			if (isEmpty(form) == true) {
+				var searchKeyword = document.getElementById("mainSearchKeyword");
+				if (isEmpty(searchKeyword.value) == true) {
+					alert("키워드를 입력해 주세요.");
+					searchKeyword.focus();
+					return false;
+				}
+
+				form = document.getElementById("searchForm");
+				form.searchKeyword.value = searchKeyword.value;
+				form.submit();
+			}
+
+			if (isEmpty(form.searchKeyword.value) == true) {
+				alert("키워드를 입력해 주세요.");
+				form.searchKeyword.focus();
+				return false;
+			}
+		}
+
+		</script>
+</th:block>
+
+</html>

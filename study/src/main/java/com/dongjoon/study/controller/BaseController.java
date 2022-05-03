@@ -4,34 +4,44 @@ package com.dongjoon.study.controller;
 import com.dongjoon.study.domain.posts.Posts;
 import com.dongjoon.study.domain.posts.PostsRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
-@RestController
-@RequiredArgsConstructor
 @Controller
+@RequiredArgsConstructor
 public class BaseController {
-
     private final PostsRepository postsRepository;
 
+    @GetMapping("/search")
+    public String search(@RequestParam(value = "keyword")String keyword, Model model){
+        List<Posts> postsList = postsRepository.postsearch(keyword);
+        model.addAttribute("result", postsList);
+
+        return "search_page";
+    };
+
+
     @GetMapping("/searchall")
-    public List<Posts> searchAll(){
-        return postsRepository.findAll();
+    public String searchAll(Model model){
+
+        return "index";
     }
 
-    @GetMapping("/searchname")
-    public List<Posts> searchName(@RequestParam(value = "kw")String kw){
+    @GetMapping("/searchkw")
+    public String searchName(@RequestParam("kw") String kw, Model model){
+        model.addAttribute("kw", postsRepository.postsearch(kw));
 
-        return postsRepository.postsearch(kw);
+
+        return "search_result";
     }
 
     @GetMapping("/viewall")
     public String viewAll(Model model){
-        model.addAttribute("list",postsRepository.findAll());
+        model.addAttribute("list",postsRepository.postall());
 
         return "demo_show";
     }

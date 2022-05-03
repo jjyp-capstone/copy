@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link href="${path}/resources/templates/style.css" rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!-- 검색 form -->
+    <form action="/board/search" method="GET">
+        <div>
+            <input name="keyword" type="text" placeholder="검색어를 입력해주세요">
+        </div>
+
+        <button>검색하기</button>
+    </form>
+</head>
+<body>
+    <div th:replace= "search_result :: search"></div>
+</body>
+</html>
