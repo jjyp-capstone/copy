@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 
 conn = pymysql.connect(host='localhost',
                        user='root',
-                       password='rnrmfwlrdnjswjdwogns12!@',
+                       password='****',
                        db='capstone',
                        charset='utf8')
 
