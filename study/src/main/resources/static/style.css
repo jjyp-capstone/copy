@@ -41,11 +41,10 @@
 
 /** header */
 #trend_header {
-    background-color: white; 
+    background-color: #FFE69A; 
     width: 100%; 
     height: 100px; 
     position: fixed;
-    left: 10px;
 }
 
 #title {
@@ -56,6 +55,8 @@
     margin-left: 40px;
     /** text-shadow: -1px 0 #111cf5, 0 1px #111cf5, 1px 0 #111cf5, 0 -1px #111cf5; */
     text-decoration: underline ;
+    background-color: white;
+    width: fit-content;
 }
 
 
@@ -79,7 +80,7 @@ a {
     position: absolute;
     top: 0;
     left: 100%;
-    background-color: #efefef;
+    background-color: #C4DDFF;
 }
 
 body {
@@ -87,7 +88,7 @@ body {
 }
 
 .left-side-bar {
-    background-color: #efefef;
+    background-color: #C4DDFF;
     height: 100%;
     width: 280px;
     position: fixed;
@@ -110,6 +111,8 @@ body {
     font-weight: bold;
     text-align: center;
     padding: 0;
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
 }
 
 .left-side-bar ul > li > a {
@@ -128,7 +131,7 @@ body {
 
 .left-side-bar ul > li:hover > a {
     color: white;
-    background-color: black;
+    background-color: #7FB5FF;
 }
 
 .left-side-bar > .status-ico > span:last-child {
@@ -144,6 +147,7 @@ body {
 }
 
 /** 메인 - analysis_div*/
+
 #trend_list {
     /*border-style: groove; */
     margin-top: 200px; 
@@ -197,6 +201,12 @@ ol.mylist li {
     list-style-type: decimal;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
+}
+
+ol.mylist li:hover {
+    color: blue;
+    font-style: oblique;
+    background-color: aliceblue;
 }
 
 #div2 {
